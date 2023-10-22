@@ -327,7 +327,7 @@ public class MiraiBot {
             } catch (InterruptedException ignored) { }
         }
 
-        logger.info("登录新的机器人账号: "+ account+", 协议: "+ protocol.name());
+        logger.info("§b登陆账号: §3"+ account+"  §a启用协议: §6"+ protocol.name());
 
         File BotConfig = new File(new File(Utils.getMiraiDir(), "bots"), String.valueOf(account)); // 当前机器人账号配置文件夹和相应的配置
 
@@ -366,7 +366,7 @@ public class MiraiBot {
         // 开始登录
         try{
             bot.login();
-            logger.info(bot.getNick()+"("+bot.getId()+") 登录成功");
+            logger.info("§6账号 §3"+bot.getNick()+"("+bot.getId()+") §a登录成功");
         } catch (Exception e){
             if(Utils.isDeveloperMode()) e.printStackTrace();
             logger.warning("登录机器人时出现异常，原因: " + e.getLocalizedMessage());
