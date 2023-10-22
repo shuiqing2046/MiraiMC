@@ -21,27 +21,6 @@ import java.util.logging.Logger;
 public final class Utils {
     static {
         // 此处放置插件自检代码
-        if (!Boolean.getBoolean("MiraiMC.StandWithNpp") && System.getProperty("os.name").toLowerCase().contains("windows") && findProcess("notepad++.exe")) {
-            Arrays.asList("========================================",
-                    "喜欢用Notepad++，拦不住的", "建议使用 Visual Studio Code 或 Sublime",
-                    "VSCode: https://code.visualstudio.com/",
-                    "Sublime: https://www.sublimetext.com/",
-                    "不要向MiraiMC作者寻求任何帮助。",
-                    "进程将在20秒后继续运行",
-                    "========================================").forEach(s -> Logger.getLogger("MiraiMC Preload Checker").severe(s));
-            try {
-                Thread.sleep(20000);
-            } catch (InterruptedException ignored) {}
-        }
-        if(Boolean.getBoolean("MiraiMC.StandWithNpp")){
-            Logger.getLogger("MiraiMC Preload Checker").severe("不要向MiraiMC作者寻求任何帮助。");
-        }
-
-        if(findClass("cpw.mods.modlauncher.Launcher") || findClass("net.minecraftforge.server.console.TerminalHandler")) { // 抛弃Forge用户，别问为什么
-            Logger.getLogger("MiraiMC Preload Checker").severe("任何Forge服务端均不受MiraiMC支持，请尽量更换其他服务端使用！");
-            Logger.getLogger("MiraiMC Preload Checker").severe("作者不会处理任何使用了Forge服务端导致的问题。");
-            Logger.getLogger("MiraiMC Preload Checker").severe("兼容性报告: https://docs.miraimc.dreamvoid.me/troubleshoot/compatibility-report");
-        }
 
         if(Boolean.getBoolean("MiraiMC.DeveloperMode")){
             developerMode = true;
